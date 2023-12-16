@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./travel_recommendation.css">
     <script defer src="./travel_recommendation.js"></script>
+    <!-- Add this script for contact form -->
+    <script defer src="./contact_form.js"></script>
     <title>Travel Recommendations</title>
 </head>
 
@@ -22,6 +24,24 @@
 
     <!-- Content Container -->
     <div id="content-container"></div>
+
+    <!-- Your existing travel recommendation content goes here -->
+
+    <!-- Contact Form -->
+    <div id="contact-form" style="display: none;">
+        <form id="myForm" onsubmit="submitForm(); return false;">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 </body>
 
 </html>
