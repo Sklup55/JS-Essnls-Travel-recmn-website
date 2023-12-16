@@ -44,24 +44,25 @@ function loadPage(page) {
     }
 }
 
-// Function to fetch recommendations from JSONPlaceholder for testing
-function fetchRecommendations(keyword = '') {
-    const apiUrl = `https://jsonplaceholder.typicode.com/posts?q=${keyword}`;
+function fetchRecommendations() {
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const apiUrl = `${proxyUrl}https://restcountries.com/v3.1/all`;
+
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            const recommendations = data.map(post => ({
-                name: post.title,
-                type: 'post',
-                description: post.body
+            const recommendations = data.map(country => ({
+                name: country.name.common,
+                type: 'country',
+                image: country.flags.svg,
+                description: `Explore the beauty of ${country.name.common}.`
             }));
 
             displayRecommendations(recommendations);
         })
         .catch(error => console.error('Error fetching data:', error));
 }
-
 
 function displayRecommendations(data) {
     const resultsContainer = document.getElementById('recommendations-results');
@@ -81,21 +82,28 @@ function displayRecommendations(data) {
     });
 }
 
-// Function to handle search button click
+// Modify the searchRecommendations function
 function searchRecommendations() {
     const searchInput = document.getElementById('searchInput');
-    const keyword = searchInput.value.toLowerCase();
+    const keyword = searchInput.value.toLowerCase().trim();
 
-    if (keyword.trim() !== '') {
+    if (keyword !== '') {
         fetchRecommendations(keyword);
     }
 }
 
-// Function to clear results in the recommendations container
+// Ensure that the 'search' button has the correct onclick attribute: onclick="searchRecommendations()"
+
+
+// Modify the clearResults function
 function clearResults() {
     const resultsContainer = document.getElementById('recommendations-results');
     resultsContainer.innerHTML = '';
+
+    // Add the following line to clear the search input
+    document.getElementById('searchInput').value = '';
 }
+// Ensure that the 'clear' button has the correct onclick attribute: onclick="clearResults()"
 
 
 function displayTime() {
