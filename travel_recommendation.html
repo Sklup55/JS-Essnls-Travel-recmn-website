@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./travel_recommendation.css">
+    <script defer src="./travel_recommendation.js"></script>
+    <title>Travel Recommendations</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#" onclick="loadPage('home')">Home</a>
+        <a href="#" onclick="loadPage('about')">About Us</a>
+        <a href="#" onclick="loadPage('contact')">Contact Us</a>
+        <input type="text" id="searchInput" placeholder="Enter keywords...">
+        <button onclick="searchRecommendations()">Search</button>
+        <button onclick="clearResults()">Clear</button>
+    </div>
+
+    <!-- Content Container -->
+    <div id="content-container"></div>
+</body>
+
+</html>

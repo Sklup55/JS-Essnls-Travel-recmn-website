@@ -1,0 +1,23 @@
+/* Add your styles based on the project requirements */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.navbar input {
+    padding: 5px;
+    margin: 0 10px;
+}
+
+/* Add more styles as needed */
